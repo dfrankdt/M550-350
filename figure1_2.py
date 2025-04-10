@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+# Goal: Generate figure 1.2
 
 u = np.linspace(-0.2, 1.2, 2**9+1)
 t = range(-3,3)
