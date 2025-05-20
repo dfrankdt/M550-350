@@ -66,9 +66,9 @@ def xReactDiff(alpha, D, L, S0, Nt, dt):
 		x_nbhd = .01
 		dr = np.zeros(Np)
 		id_xs = np.nonzero(1-s[kt,:])
-		for k_xs in zip(*id_xs):
+		id_xi = np.nonzero(s[kt,:])
+		for k_xs in id_xs[0]:
 			xloc = x[kt, k_xs]
-			id_xi = np.nonzero(s[kt,:])
 			dr[k_xs] = np.count_nonzero( (xloc - x[kt, id_xi])**2 < x_nbhd**2)
 		# -- Note that we need to divide by a length to ensure a density (units matter!) -
 		p_decay = dr*dt*alpha/(2*x_nbhd)
@@ -102,7 +102,7 @@ def agent_SIR_1d():
 	alpha = 1	# Rate constant for S -> I
 	D = 1		# Diffusion coefficient
 	L = 100		# Length of spatial interval
-	S0 = 2		# Density of S (particles per length) on 0 < x < L
+	S0 = 1		# Density of S (particles per length) on 0 < x < L
 	Nt = 3000	# Number of time steps
 	dt = 0.01	# Length of time step
 
